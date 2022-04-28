@@ -15,11 +15,80 @@ public class Education implements Serializable {
     private String edu_title;
     private String edu_institution;
     @Temporal(TemporalType.DATE)
-    private Date date_start;
+    private Date edu_start;
     @Temporal(TemporalType.DATE)
-    private Date date_end;
+    private Date edu_end;
     @Column(name = "edu_logoUrl", length = 2048)
     private String edu_logoUrl;
 
+    public Education() {
+    }
 
+    public Education(String edu_title, String edu_institution, Date edu_start, Date edu_end, String edu_logoUrl) {
+        this.edu_title = edu_title;
+        this.edu_institution = edu_institution;
+        this.edu_start = edu_start;
+        this.edu_end = edu_end;
+        this.edu_logoUrl = edu_logoUrl;
+    }
+
+    public Long getEid() {
+        return eid;
+    }
+
+    public void setEid(Long eid) {
+        this.eid = eid;
+    }
+
+    public String getEdu_title() {
+        return edu_title;
+    }
+
+    public void setEdu_title(String edu_title) {
+        this.edu_title = edu_title;
+    }
+
+    public String getEdu_institution() {
+        return edu_institution;
+    }
+
+    public void setEdu_institution(String edu_institution) {
+        this.edu_institution = edu_institution;
+    }
+
+    public Date getDate_start() {
+        return edu_start;
+    }
+
+    public void setDate_start(Date edu_start) {
+        this.edu_start = edu_start;
+    }
+
+    public Date getDate_end() {
+        return edu_end;
+    }
+
+    public void setDate_end(Date edu_end) {
+        this.edu_end = edu_end;
+    }
+
+    public String getEdu_logoUrl() {
+        return edu_logoUrl;
+    }
+
+    public void setEdu_logoUrl(String edu_logoUrl) {
+        this.edu_logoUrl = edu_logoUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "Education{" +
+                "eid=" + eid +
+                ", edu_title='" + edu_title + '\'' +
+                ", edu_institution='" + edu_institution + '\'' +
+                ", edu_start=" + edu_start +
+                ", edu_end=" + edu_end +
+                ", edu_logoUrl='" + edu_logoUrl + '\'' +
+                '}';
+    }
 }
