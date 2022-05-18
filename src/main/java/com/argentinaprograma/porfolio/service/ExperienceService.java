@@ -1,9 +1,12 @@
 package com.argentinaprograma.porfolio.service;
 
 import com.argentinaprograma.porfolio.entities.Experience;
+import com.argentinaprograma.porfolio.exception.UserNotFoundException;
 import com.argentinaprograma.porfolio.repository.ExperienceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ExperienceService {
@@ -16,5 +19,22 @@ public class ExperienceService {
 
     public Experience addExperience(Experience experience){
         return experienceRepository.save(experience);
+    }
+
+    public List<Experience> findAllExperience() {
+        return experienceRepository.findAll();
+    }
+
+    public Experience findExperience(Long id){
+        return experienceRepository.findExperienceById(id)
+                .orElseThrow(() -> new UserNotFoundException("La experiencia laboral de id" + id + "no fue encontrada"));
+    }
+
+    public Experience updateExperience(Experience experience){
+        return experienceRepository.save(experience);
+    }
+
+    public void deleteExperience(Long id){
+        experienceRepository.deleteExperienceById(id);
     }
 }

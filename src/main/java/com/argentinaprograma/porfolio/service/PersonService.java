@@ -1,6 +1,7 @@
 package com.argentinaprograma.porfolio.service;
 
 import com.argentinaprograma.porfolio.entities.Person;
+import com.argentinaprograma.porfolio.exception.UserNotFoundException;
 import com.argentinaprograma.porfolio.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,9 @@ public class PersonService {
         return personRepository.save(person);
     }
 
+    public Person findPersonById(Long id) {
+        return personRepository.findPersonById(id).orElseThrow(() -> new UserNotFoundException("El usuario de id" + id + "no fue encontrado"));
+    }
 
     public void deletePerson(Long id){
         personRepository.deletePersonById(id);
