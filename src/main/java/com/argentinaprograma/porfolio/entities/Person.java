@@ -15,13 +15,13 @@ public class Person implements Serializable {
     private Long id;
     private String name;
     private String lastname;
-    private Date b_date;
+    private String b_date;
     private String address;
     private String phone;
     private String e_mail;
-    @Column(name = "about_me", length = 600)
+    @Column(length = 600)
     private String about_me;
-    @Column(name = "img_url", length = 2048)
+    @Column(length = 2048)
     private String img_url;
 
     @OneToMany(targetEntity = Education.class, cascade = CascadeType.ALL)
@@ -42,12 +42,12 @@ public class Person implements Serializable {
 
     @OneToMany(targetEntity = Project.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "pr_fk", referencedColumnName = "id")
-    private List<Project> projects;
+    private List<Project> project;
 
     public Person() {
     }
 
-    public Person(String name, String lastname, Date b_date, String address, String phone, String e_mail, String about_me, String img_url, List<Education> educations, List<Skill> skillList, List<Soft> softList, List<Experience> experiences, List<Project> projects) {
+    public Person(String name, String lastname, String b_date, String address, String phone, String e_mail, String about_me, String img_url, List<Education> educations, List<Skill> skillList, List<Soft> softList, List<Experience> experiences, List<Project> project) {
         this.name = name;
         this.lastname = lastname;
         this.b_date = b_date;
@@ -60,7 +60,7 @@ public class Person implements Serializable {
         this.skillList = skillList;
         this.softList = softList;
         this.experiences = experiences;
-        this.projects = projects;
+        this.project = project;
     }
 
     public Long getId() {
@@ -87,11 +87,11 @@ public class Person implements Serializable {
         this.lastname = lastname;
     }
 
-    public Date getBirth_date() {
+    public String getBirth_date() {
         return b_date;
     }
 
-    public void setBirth_date(Date b_date) {
+    public void setBirth_date(String b_date) {
         this.b_date = b_date;
     }
 
@@ -168,11 +168,11 @@ public class Person implements Serializable {
     }
 
     public List<Project> getProjects() {
-        return projects;
+        return project;
     }
 
-    public void setProjects(List<Project> projects) {
-        this.projects = projects;
+    public void setProjects(List<Project> project) {
+        this.project = project;
     }
 
     @Override
@@ -191,7 +191,7 @@ public class Person implements Serializable {
                 ", skillList=" + skillList +
                 ", softList=" + softList +
                 ", experiences=" + experiences +
-                ", projects=" + projects +
+                ", project=" + project +
                 '}';
     }
 }

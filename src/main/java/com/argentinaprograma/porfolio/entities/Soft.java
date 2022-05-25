@@ -12,7 +12,7 @@ public class Soft implements Serializable {
     @Column(nullable = false,updatable = false)
     private Long fid;
     private String sft_name;
-    @Column(name = "sft_logoUrl", length = 2048)
+    @Column(length = 2048)
     private String sft_logoUrl;
 
     public Soft() {

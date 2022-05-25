@@ -14,19 +14,17 @@ public class Experience implements Serializable {
     private Long xid;
     private String company_name;
     private String company_url;
-    @Temporal(TemporalType.DATE)
-    private Date x_start;
-    @Temporal(TemporalType.DATE)
-    private Date x_end;
-    @Column(name = "company_logoUrl", length = 2048)
+    private String x_start;
+    private String x_end;
+    @Column(length = 2048)
     private String company_logoUrl;
-    @Column(name = "x_description", length = 1000)
+    @Column(length = 1000)
     private String x_description;
 
     public Experience() {
     }
 
-    public Experience(String company_name, String company_url, Date x_start, Date x_end, String company_logoUrl, String x_description) {
+    public Experience(String company_name, String company_url, String x_start, String x_end, String company_logoUrl, String x_description) {
         this.company_name = company_name;
         this.company_url = company_url;
         this.x_start = x_start;
@@ -59,19 +57,19 @@ public class Experience implements Serializable {
         this.company_url = company_url;
     }
 
-    public Date getDate_start() {
+    public String getDate_start() {
         return x_start;
     }
 
-    public void setDate_start(Date x_start) {
+    public void setDate_start(String x_start) {
         this.x_start = x_start;
     }
 
-    public Date getDate_end() {
+    public String getDate_end() {
         return x_end;
     }
 
-    public void setDate_end(Date x_end) {
+    public void setDate_end(String x_end) {
         this.x_end = x_end;
     }
 

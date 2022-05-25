@@ -13,7 +13,7 @@ public class Skill implements Serializable {
     private Long sid;
     private String skill_name;
     private String skill_age;
-    @Column(name = "skill_logoUrl", length = 2048)
+    @Column(length = 2048)
     private String skill_logoUrl;
 
     public Skill() {

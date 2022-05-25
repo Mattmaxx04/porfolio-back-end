@@ -14,17 +14,15 @@ public class Education implements Serializable {
     private Long eid;
     private String edu_title;
     private String edu_institution;
-    @Temporal(TemporalType.DATE)
-    private Date edu_start;
-    @Temporal(TemporalType.DATE)
-    private Date edu_end;
-    @Column(name = "edu_logoUrl", length = 2048)
+    private String edu_start;
+    private String edu_end;
+    @Column(length = 2048)
     private String edu_logoUrl;
 
     public Education() {
     }
 
-    public Education(String edu_title, String edu_institution, Date edu_start, Date edu_end, String edu_logoUrl) {
+    public Education(String edu_title, String edu_institution, String edu_start, String edu_end, String edu_logoUrl) {
         this.edu_title = edu_title;
         this.edu_institution = edu_institution;
         this.edu_start = edu_start;
@@ -56,19 +54,19 @@ public class Education implements Serializable {
         this.edu_institution = edu_institution;
     }
 
-    public Date getDate_start() {
+    public String getDate_start() {
         return edu_start;
     }
 
-    public void setDate_start(Date edu_start) {
+    public void setDate_start(String edu_start) {
         this.edu_start = edu_start;
     }
 
-    public Date getDate_end() {
+    public String getDate_end() {
         return edu_end;
     }
 
-    public void setDate_end(Date edu_end) {
+    public void setDate_end(String edu_end) {
         this.edu_end = edu_end;
     }
 
