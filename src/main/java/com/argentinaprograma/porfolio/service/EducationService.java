@@ -12,6 +12,7 @@ import java.util.List;
 public class EducationService {
 
     private final EducationRepository educationRepository;
+
     @Autowired
     public EducationService(EducationRepository educationRepository){
         this.educationRepository = educationRepository;
@@ -29,12 +30,13 @@ public class EducationService {
         return educationRepository.save(education);
     }
 
-    public void deleteEducation(Long id) {
-        educationRepository.deleteEducationById(id);
+    public void deleteEducation(Long eid) {
+        educationRepository.deleteEducationByEid(eid);
     }
 
 
-    public Education findEducationById(Long id) {
-        return educationRepository.findEducationById(id).orElseThrow(() -> new UserNotFoundException("El curso de id" + id + "no fue encontrado"));
+    public Education findEducationByEid(Long eid) {
+        return educationRepository.findEducationByEid(eid).orElseThrow(()
+                -> new UserNotFoundException("El curso de id" + eid + "no fue encontrado"));
     }
 }

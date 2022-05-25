@@ -25,16 +25,16 @@ public class ExperienceService {
         return experienceRepository.findAll();
     }
 
-    public Experience findExperience(Long id){
-        return experienceRepository.findExperienceById(id)
-                .orElseThrow(() -> new UserNotFoundException("La experiencia laboral de id" + id + "no fue encontrada"));
+    public Experience findExperience(Long xid){
+        return experienceRepository.findExperienceByXid(xid)
+                .orElseThrow(() -> new UserNotFoundException("La experiencia laboral de id" + xid + "no fue encontrada"));
     }
 
     public Experience updateExperience(Experience experience){
         return experienceRepository.save(experience);
     }
 
-    public void deleteExperience(Long id){
-        experienceRepository.deleteExperienceById(id);
+    public void deleteExperience(Long xid){
+        experienceRepository.deleteExperienceByXid(xid);
     }
 }

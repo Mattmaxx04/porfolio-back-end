@@ -25,17 +25,18 @@ public class ProjectService {
         return projectRepository.findAll();
     }
 
-    public Project updateProject(Project proyecto) {
-        return projectRepository.save(proyecto);
+    public Project updateProject(Project project) {
+        return projectRepository.save(project);
     }
 
-    public void deleteProyecto(Long id) {
-        projectRepository.deleteProjectById(id);
+    public void deleteProject(Long pid) {
+        projectRepository.deleteProjectByPid(pid);
     }
 
 
-    public Project findProyecto(Long id) {
-        return projectRepository.findProjectById(id).orElseThrow(() -> new UserNotFoundException("El proyecto de id" + id + "no fue encontrado"));
+    public Project findProject(Long pid) {
+        return projectRepository.findProjectByPid(pid).orElseThrow(() ->
+                new UserNotFoundException("El proyecto de id" + pid + "no fue encontrado"));
     }
 
 

@@ -31,13 +31,13 @@ public class SkillService {
         return skillRepository.save(skill);
     }
 
-    public void deleteSkill(Long id) {
-        skillRepository.deleteSkillById(id);
+    public void deleteSkill(Long sid) {
+        skillRepository.deleteSkillBySid(sid);
     }
 
 
-    public Skill findSkillById(Long id) {
-        return skillRepository.findSkillById(id).orElseThrow(() -> new UserNotFoundException("La habilidad de id" + id + "no fue encontrada"));
+    public Skill findSkillBySid(Long sid) {
+        return skillRepository.findSkillBySid(sid).orElseThrow(() -> new UserNotFoundException("La habilidad de id" + sid + "no fue encontrada"));
     }
 
 
