@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface ProjectRepository extends JpaRepository<Project, Long> {
-    void deleteProjectById(Long id);
+    void deleteProjectByPid(Long pid);
 
-    Optional<Project> findProjectById(Long id);
+    Optional<Project> findProjectByPid(Long pid);
 }

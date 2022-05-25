@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface SkillRepository extends JpaRepository<Skill, Long> {
-    void deleteSkillById(Long id);
+    void deleteSkillBySid(Long sid);
 
-    Optional<Skill> findSkillById(Long id);
+    Optional<Skill> findSkillBySid(Long sid);
 }
