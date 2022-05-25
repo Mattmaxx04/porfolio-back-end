@@ -30,13 +30,13 @@ public class SoftService {
         return softRepository.save(soft);
     }
 
-    public void deleteSoft(Long id) {
-        softRepository.deleteSoftById(id);
+    public void deleteSoft(Long fid) {
+        softRepository.deleteSoftByFid(fid);
     }
 
 
-    public Soft findSoftById(Long id) {
-        return softRepository.findSoftById(id).orElseThrow(() -> new UserNotFoundException("La habilidad de id" + id + "no fue encontrada"));
+    public Soft findSoftByFid(Long fid) {
+        return softRepository.findSoftByFid(fid).orElseThrow(() -> new UserNotFoundException("La habilidad de id" + fid + "no fue encontrada"));
     }
 
 }
