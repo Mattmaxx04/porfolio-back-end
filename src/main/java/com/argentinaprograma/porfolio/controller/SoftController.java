@@ -6,6 +6,7 @@ import com.argentinaprograma.porfolio.service.SoftService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,30 +25,30 @@ public class SoftController {
         return new ResponseEntity<>(soft, HttpStatus.OK);
     }
 
-    @GetMapping("/find/{id}")
-    public ResponseEntity<Soft> findSoftById(@PathVariable("id") Long id) {
-        Soft soft = softService.findSoftById(id);
+    @GetMapping("/find/{fid}")
+    public ResponseEntity<Soft> findSoftByFid(@PathVariable("fid") Long fid) {
+        Soft soft = softService.findSoftByFid(fid);
         return new ResponseEntity<>(soft, HttpStatus.OK);
     }
 
-    /* @PreAuthorize("hasRole('ADMIN')")*/
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<Soft> addSoft (@RequestBody Soft soft) {
         Soft newSoft = softService.addSoft(soft);
         return new ResponseEntity<>(newSoft, HttpStatus.CREATED);
     }
 
-    /* @PreAuthorize("hasRole('ADMIN')")*/
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update")
     public ResponseEntity<Soft> updateSoft (@RequestBody Soft soft) {
         Soft updateSoft = softService.updateSoft(soft);
         return new ResponseEntity<>(updateSoft, HttpStatus.OK);
     }
 
-    /* @PreAuthorize("hasRole('ADMIN')")*/
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteSoft (@PathVariable("id") Long id) {
-        softService.deleteSoft(id);
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/delete/{fid}")
+    public ResponseEntity<?> deleteSoft (@PathVariable("fid") Long fid) {
+        softService.deleteSoft(fid);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

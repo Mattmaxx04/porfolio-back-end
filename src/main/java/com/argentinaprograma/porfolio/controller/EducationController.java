@@ -1,52 +1,54 @@
 package com.argentinaprograma.porfolio.controller;
 
 
-import com.backendpettinaroli.portfolio.entity.Estudios;
-import com.backendpettinaroli.portfolio.service.EstudiosService;
+import com.argentinaprograma.porfolio.entities.Education;
+import com.argentinaprograma.porfolio.service.EducationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/estudios")
+@RequestMapping("/education")
 public class EducationController {
+
    @Autowired
-   EstudiosService estudiosService;
+   EducationService educationService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<Estudios>> getAllEstudios() {
-        List<Estudios> estudios = estudiosService.findAllEstudios();
-        return new ResponseEntity<>(estudios, HttpStatus.OK);
+    public ResponseEntity<List<Education>> getAllEducation() {
+        List<Education> education = educationService.findAllEducation();
+        return new ResponseEntity<>(education, HttpStatus.OK);
     }
 
-    @GetMapping("/find/{id}")
-    public ResponseEntity<Estudios> getEstudiosById(@PathVariable("id") Long id) {
-        Estudios estudio = estudiosService.findEstudiosById(id);
-        return new ResponseEntity<>(estudio, HttpStatus.OK);
+    @GetMapping("/find/{eid}")
+    public ResponseEntity<Education> getEducationByEid(@PathVariable("eid") Long eid) {
+        Education education = educationService.findEducationByEid(eid);
+        return new ResponseEntity<>(education, HttpStatus.OK);
     }
 
-    /* @PreAuthorize("hasRole('ADMIN')")*/
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add")
-    public ResponseEntity<Estudios> addEstudio (@RequestBody Estudios estudio) {
-        Estudios newEstudio = estudiosService.addEstudio(estudio);
-        return new ResponseEntity<>(newEstudio, HttpStatus.CREATED);
+    public ResponseEntity<Education> addEducation (@RequestBody Education education) {
+        Education newEducation = educationService.addEducation(education);
+        return new ResponseEntity<>(newEducation, HttpStatus.CREATED);
     }
 
-    /* @PreAuthorize("hasRole('ADMIN')")*/
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update")
-    public ResponseEntity<Estudios> updateEstudio (@RequestBody Estudios estudio) {
-        Estudios updateEstudios = estudiosService.updateEstudios(estudio);
-        return new ResponseEntity<>(updateEstudios, HttpStatus.OK);
+    public ResponseEntity<Education> updateEducation (@RequestBody Education education) {
+        Education updateEducation = educationService.updateEducation(education);
+        return new ResponseEntity<>(updateEducation, HttpStatus.OK);
     }
 
-    /* @PreAuthorize("hasRole('ADMIN')")*/
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteEstudio (@PathVariable("id") Long id) {
-        estudiosService.deleteEstudios(id);
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/delete/{eid}")
+    public ResponseEntity<?> deleteEducation (@PathVariable("eid") Long eid) {
+        educationService.deleteEducation(eid);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
