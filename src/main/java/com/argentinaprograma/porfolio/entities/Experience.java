@@ -12,6 +12,7 @@ public class Experience implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false,updatable = false)
     private Long xid;
+    private String company_job;
     private String company_name;
     private String company_url;
     private String x_start;
@@ -24,7 +25,8 @@ public class Experience implements Serializable {
     public Experience() {
     }
 
-    public Experience(String company_name, String company_url, String x_start, String x_end, String company_logoUrl, String x_description) {
+    public Experience(String company_name,String company_job, String company_url, String x_start, String x_end, String company_logoUrl, String x_description) {
+        this.company_job = company_job;
         this.company_name = company_name;
         this.company_url = company_url;
         this.x_start = x_start;
@@ -39,6 +41,14 @@ public class Experience implements Serializable {
 
     public void setXid(Long xid) {
         this.xid = xid;
+    }
+
+    public String getCompany_job() {
+        return company_job;
+    }
+
+    public void setCompany_job(String company_job) {
+        this.company_job = company_job;
     }
 
     public String getCompany_name() {
@@ -93,6 +103,7 @@ public class Experience implements Serializable {
     public String toString() {
         return "Experience{" +
                 "xid=" + xid +
+                ", company_job='" + company_job + '\'' +
                 ", company_name='" + company_name + '\'' +
                 ", company_url='" + company_url + '\'' +
                 ", x_start=" + x_start +

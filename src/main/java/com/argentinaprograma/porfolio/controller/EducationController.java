@@ -45,7 +45,7 @@ public class EducationController {
         return new ResponseEntity<>(updateEducation, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    /*@PreAuthorize("hasRole('ADMIN')")*/
     @DeleteMapping("/delete/{eid}")
     public ResponseEntity<?> deleteEducation (@PathVariable("eid") Long eid) {
         educationService.deleteEducation(eid);
