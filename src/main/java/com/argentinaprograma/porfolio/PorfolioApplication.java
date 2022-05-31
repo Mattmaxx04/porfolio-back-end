@@ -13,7 +13,7 @@ public class PorfolioApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PorfolioApplication.class, args);
 	}
-
+/*
 	@Bean
 	public CorsFilter corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
@@ -28,5 +28,5 @@ public class PorfolioApplication {
 		UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
 		urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
 		return new CorsFilter(urlBasedCorsConfigurationSource);
-	}
+	}*/
 }
