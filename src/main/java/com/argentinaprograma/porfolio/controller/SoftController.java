@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "https://porfolio-app-48d1e.web.app")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/soft")
 public class SoftController {
