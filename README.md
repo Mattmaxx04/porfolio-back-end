@@ -1,5 +1,3 @@
-# porfolio-back-end / proyecto Argentina Programa. 
-
 # porfolio-back-end (proyecto Argentina Programa)
 
 * * *
